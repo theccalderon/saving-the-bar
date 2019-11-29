@@ -23,6 +23,12 @@ const request = require('request');
         console.log("found input");
         await page.evaluate((element, value) => element.value = value, inputName, name.name+" "+name.surname);
         i++;
+        // email, not required
+        const [emailInput] = await page.$x("//*[@id=\"mG61Hd\"]/div/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/input")
+        if (emailInput)
+        {
+          await page.evaluate((element, value) => element.value = value, emailInput, name.email);
+        }
       }
       else {
         console.log("couldn't find the input");
