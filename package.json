@@ -1,0 +1,18 @@
+{
+  "name": "saving-the-bar",
+  "version": "1.0.0",
+  "description": "using puppeteer to automatically fill a google form (petition) to keep my bar open",
+  "main": "saving-the-bar.js",
+  "dependencies": {
+    "https": "^1.0.0",
+    "puppeteer": "^2.0.0",
+    "request": "^2.88.0",
+    "requests": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}
