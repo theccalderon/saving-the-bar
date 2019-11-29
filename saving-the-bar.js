@@ -17,7 +17,8 @@ const request = require('request');
       // await page.waitFor(2500);
       // fill the text box with element
       console.log("selecting input")
-      const [inputName] = await page.$x("/html[@class='m2']/body[@class='freebirdLightBackground ']/div[@class='freebirdFormviewerViewFormContentWrapper']/div[@class='freebirdFormviewerViewCenteredContent']/form[@id='mG61Hd']/div[@class='freebirdFormviewerViewFormCard exportFormCard']/div[@class='freebirdFormviewerViewFormContent']/div[@class='freebirdFormviewerViewItemList']/div[@class='freebirdFormviewerViewNumberedItemContainer'][1]/div[@class='freebirdFormviewerViewItemsItemItem freebirdFormviewerViewItemsTextTextItem']/div[@class='freebirdFormviewerViewItemsTextItemWrapper']/div[@class='quantumWizTextinputPaperinputEl freebirdFormviewerViewItemsTextShortText freebirdThemedInput modeLight']/div[@class='quantumWizTextinputPaperinputMainContent exportContent']/div[@class='quantumWizTextinputPaperinputContentArea exportContentArea']/div[@class='quantumWizTextinputPaperinputInputArea']/input[@class='quantumWizTextinputPaperinputInput exportInput']");
+      //*[@id="mG61Hd"]/div/div/div[2]/div[1]/div/div[2]/div/div[1]/div/div[1]/input
+      const [inputName] = await page.$x("//*[@id=\"mG61Hd\"]/div/div/div[2]/div[1]/div/div[2]/div/div[1]/div/div[1]/input")
       if (inputName){
         console.log("found input");
         await page.evaluate((element, value) => element.value = value, inputName, name.name+" "+name.surname);
@@ -29,8 +30,7 @@ const request = require('request');
         // return;
       }
       // click on submit
-      await page.waitForSelector('span.appsMaterialWizButtonPaperbuttonLabel.quantumWizButtonPaperbuttonLabel.exportLabel', {visible: true});
-      const [button] = await page.$x("/html[@class='m2']/body[@class='freebirdLightBackground ']/div[@class='freebirdFormviewerViewFormContentWrapper']/div[@class='freebirdFormviewerViewCenteredContent']/form[@id='mG61Hd']/div[@class='freebirdFormviewerViewFormCard exportFormCard']/div[@class='freebirdFormviewerViewFormContent']/div[@class='freebirdFormviewerViewNavigationNavControls']/div[@class='freebirdFormviewerViewNavigationButtonsAndProgress']/div[@class='freebirdFormviewerViewNavigationButtons']/div[@class='appsMaterialWizButtonEl appsMaterialWizButtonPaperbuttonEl appsMaterialWizButtonPaperbuttonFilled freebirdFormviewerViewNavigationSubmitButton freebirdThemedFilledButtonM2']/span[@class='appsMaterialWizButtonPaperbuttonContent exportButtonContent']/span[@class='appsMaterialWizButtonPaperbuttonLabel quantumWizButtonPaperbuttonLabel exportLabel']");
+      const [button] = await page.$x("//*[@id=\"mG61Hd\"]/div/div/div[3]/div[1]/div/div/span/span");
       if (button) {
         await button.click();
         console.log('clicking on it');
