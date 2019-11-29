@@ -26,7 +26,6 @@ const request = require('request');
       }
       else {
         console.log("couldn't find the input");
-        await browser.close();
         continue;
         // return;
       }
