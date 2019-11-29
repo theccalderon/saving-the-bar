@@ -13,11 +13,10 @@ const request = require('request');
     try
     {
       await page.goto('https://docs.google.com/forms/d/e/1FAIpQLSfnnuYM7vjrEzZ1QelNuKsBumUQIRPipQLHUuXuIWvVMk-bvA/viewform');
-      await page.waitForSelector('input.quantumWizTextinputPaperinputInput.exportInput', {visible: true});
+      await page.waitForSelector('body', {visible: true});
       // await page.waitFor(2500);
       // fill the text box with element
       console.log("selecting input")
-      // /html/body/div[1]/div[2]/form/div/div/div[3]/div[1]/div/div/span
       const [inputName] = await page.$x("/html[@class='m2']/body[@class='freebirdLightBackground ']/div[@class='freebirdFormviewerViewFormContentWrapper']/div[@class='freebirdFormviewerViewCenteredContent']/form[@id='mG61Hd']/div[@class='freebirdFormviewerViewFormCard exportFormCard']/div[@class='freebirdFormviewerViewFormContent']/div[@class='freebirdFormviewerViewItemList']/div[@class='freebirdFormviewerViewNumberedItemContainer'][1]/div[@class='freebirdFormviewerViewItemsItemItem freebirdFormviewerViewItemsTextTextItem']/div[@class='freebirdFormviewerViewItemsTextItemWrapper']/div[@class='quantumWizTextinputPaperinputEl freebirdFormviewerViewItemsTextShortText freebirdThemedInput modeLight']/div[@class='quantumWizTextinputPaperinputMainContent exportContent']/div[@class='quantumWizTextinputPaperinputContentArea exportContentArea']/div[@class='quantumWizTextinputPaperinputInputArea']/input[@class='quantumWizTextinputPaperinputInput exportInput']");
       if (inputName){
         console.log("found input");
