@@ -3,7 +3,7 @@ const request = require('request');
 
 (async () => {
   const amount = 25;
-  let { _, body } = await getNames('https://uinames.com/api/?amount='+amount+'&region=united+states');
+  let { _, body } = await getNames('https://uinames.com/api/?ext&amount='+amount+'&region=united+states');
   // console.log(body);
   var i = 0;
   const browser = await puppeteer.launch();
@@ -20,14 +20,15 @@ const request = require('request');
       //*[@id="mG61Hd"]/div/div/div[2]/div[1]/div/div[2]/div/div[1]/div/div[1]/input
       const [inputName] = await page.$x("//*[@id=\"mG61Hd\"]/div/div/div[2]/div[1]/div/div[2]/div/div[1]/div/div[1]/input")
       if (inputName){
-        console.log("found input");
+        console.log("found name input, submitting with vaue: "+ name.name+" "+name.surname);
         await page.evaluate((element, value) => element.value = value, inputName, name.name+" "+name.surname);
         i++;
         // email, not required
         const [emailInput] = await page.$x("//*[@id=\"mG61Hd\"]/div/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/input")
         if (emailInput)
         {
-          await page.evaluate((element, value) => element.value = value, emailInput, name.email);
+          console.log("found email input, submitting with vaue: "+ name.email.split('@')[0]+"@gmail.com");
+          await page.evaluate((element, value) => element.value = value, emailInput, name.email.split('@')[0]+"@gmail.com");
         }
       }
       else {
