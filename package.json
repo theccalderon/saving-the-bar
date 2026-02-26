@@ -5,7 +5,7 @@
   "main": "saving-the-bar.js",
   "dependencies": {
     "https": "^1.0.0",
-    "puppeteer": "^2.0.0",
+    "puppeteer": "^24.37.5",
     "request": "^2.88.0",
     "requests": "^0.3.0"
   },
